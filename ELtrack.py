@@ -30,8 +30,9 @@ def get_damping_rate_and_phase(r, i):
 
 def run(r, i, chromaticity, dQmax, folder, ratio):
     np.random.seed(42)
+    dQcoh_x, dQcoh_y = dQmax*MAX_TO_SHIFT_RATIO_DC, dQmax*MAX_TO_SHIFT_RATIO_DC
     long_map, trans_map, bunch = machine_setup(
-        chromaticity, i_oct=0, dQcoh_x=dQmax, dQcoh_y=dQmax)
+        chromaticity, i_oct=0, dQcoh_x=dQcoh_x, dQcoh_y=dQcoh_y)
     bunch_monitor = get_bunch_monitor(
         folder, r, i, N_TURNS)
     slicer = slicing.UniformBinSlicer(n_slices=N_SLICES, n_sigma_z=4)
