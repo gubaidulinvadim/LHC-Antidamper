@@ -5,3 +5,5 @@ GAMMA_E = 1 + U_E * e / (m_e * c**2)
 BETA_E = sqrt(1 - GAMMA_E**-2)
 I_ALFVEN = 17e3
 L_E = 2.
+MAX_TO_SHIFT_RATIO_DC = 0.645
+MAX_TO_SHIFT_RATIO_PEL = 0.818
