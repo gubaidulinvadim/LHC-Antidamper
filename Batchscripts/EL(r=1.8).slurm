@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=EL\(r=1.4\)
+#SBATCH --job-name=EL\(r=1.8\)
 #SBATCH --partition=main
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=gubaidulinvadim@gmail.com
@@ -15,8 +15,8 @@ export PYTHONPATH='/lustre/bhs/vgubaid/PyHEADTAIL/'
 export HDF5_USE_FILE_LOCKING='FALSE'
 
 FILE='/lustre/bhs/vgubaid/Simulation/LHC-Antidamper/ELtrack.py'
-FOLDER='/lustre/bhs/vgubaid/Data/LHC/antidamper/EL\(r=1.4\)/'
-TMP_FOLDER='/tmp/vgubaid/antidamperEL\(r=1.4\)/'
+FOLDER='/lustre/bhs/vgubaid/Data/LHC/antidamper/EL(r=1.8)/'
+TMP_FOLDER='/tmp/vgubaid/antidamperEL(r=1.8)/'
 rm -rf ${TMP_FOLDER}
 mkdir -p ${TMP_FOLDER}
 mkdir -p ${FOLDER}

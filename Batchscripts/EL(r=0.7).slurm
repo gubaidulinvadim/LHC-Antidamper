@@ -15,8 +15,8 @@ export PYTHONPATH='/lustre/bhs/vgubaid/PyHEADTAIL/'
 export HDF5_USE_FILE_LOCKING='FALSE'
 
 FILE='/lustre/bhs/vgubaid/Simulation/LHC-Antidamper/ELtrack.py'
-FOLDER='/lustre/bhs/vgubaid/Data/LHC/antidamper/EL\(r=0.7\)/'
-TMP_FOLDER='/tmp/vgubaid/antidamperEL\(r=0.7\)/'
+FOLDER='/lustre/bhs/vgubaid/Data/LHC/antidamper/EL(r=0.7)/'
+TMP_FOLDER='/tmp/vgubaid/antidamperEL(r=0.7)/'
 rm -rf ${TMP_FOLDER}
 mkdir -p ${TMP_FOLDER}
 mkdir -p ${FOLDER}
