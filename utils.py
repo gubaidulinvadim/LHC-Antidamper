@@ -14,7 +14,7 @@ def get_bunch_monitor(folder, dQr, dQi, n_turns, parameters_dict=None):
     filename = folder+'BM(dQre={0:.3f},dQim={1:.3f})'.format(dQr*1e3, dQi*1e3)
     bunch_monitor = BunchMonitor(
         filename=filename, n_steps=n_turns,
-        parameters_dict=parameters_dict, write_buffer_every=250
+        parameters_dict=parameters_dict, write_buffer_every=1000
     )
     return bunch_monitor
 
@@ -22,7 +22,7 @@ def get_bunch_monitor(folder, dQr, dQi, n_turns, parameters_dict=None):
 def get_slice_monitor(folder, dQr, dQi, slicer, n_turns_slices=1000):
     filename = folder+'SLM(dQre={0:.3f},dQim={1:.3f})'.format(dQr*1e3, dQi*1e3)
     slice_monitor = SliceMonitor(
-        filename=filename, n_steps=n_turns_slices, slicer=slicer, write_buffer_every=250
+        filename=filename, n_steps=n_turns_slices, slicer=slicer, write_buffer_every=1000
     )
     return slice_monitor
 
@@ -31,7 +31,7 @@ def get_particle_monitor(folder, param, n_turns, stride=50, parameters_dict=None
     filename = folder+'PM(param={0:.3f})'.format(param)
     particle_monitor = ParticleMonitor(
         filename=filename, n_steps=n_turns,
-        parameters_dict=parameters_dict, write_buffer_every=500, stride=stride
+        parameters_dict=parameters_dict, write_buffer_every=1000, stride=stride
     )
     return particle_monitor
 
