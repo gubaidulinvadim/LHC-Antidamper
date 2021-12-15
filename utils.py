@@ -40,10 +40,10 @@ N_MACROPARTICLES = int(1.e5)
 N_SEGMENTS = 1
 
 
-def machine_setup(chroma, i_oct, dQcoh_x=0, dQcoh_y=0):
+def machine_setup(chroma, i_oct=0, dQcoh_x=0, dQcoh_y=0):
     np.random.seed(42)
     chromaticity = chroma
-    Q_X, Q_Y = 62.28, 60.31
+    Q_X, Q_Y = 62.31, 60.32
     (Q_X, Q_Y) = (Q_X-dQcoh_x, Q_Y-dQcoh_y)
     ################################################################
     ###                 LONGITUDINAL MAP SET UP                  ###

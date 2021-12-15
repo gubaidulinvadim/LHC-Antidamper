@@ -8,6 +8,8 @@ from PyHEADTAIL.particles import slicing
 from PyHEADTAIL.feedback.transverse_damper import TransverseDamper
 from PyHEADTAIL.elens.elens import ElectronLens
 from LHC_parameters import *
+from EL_parameters import *
+
 from utils import *
 
 N_SEGMENTS = 1
@@ -29,8 +31,9 @@ def get_damping_rate_and_phase(r, i):
 
 def run(r, i, chromaticity, dQmax, folder):
     np.random.seed(42)
+    dQcoh_x, dQcoh_y = dQmax*MAX_TO_SHIFT_RATIO_PEL, dQmax*MAX_TO_SHIFT_RATIO_PEL
     long_map, trans_map, bunch = machine_setup(
-        chromaticity, dQmax_x=dQmax, dQmax_y=dQmax)
+        chromaticity, i_oct=0, dQcoh_x=dQmax, dQcoh_y=dQmax)
     bunch_monitor = get_bunch_monitor(
         folder, r, i, N_TURNS)
     slicer = slicing.UniformBinSlicer(n_slices=N_SLICES, n_sigma_z=4)
@@ -40,8 +43,9 @@ def run(r, i, chromaticity, dQmax, folder):
         folder, dQmax*1e3, N_TURNS_SLICEMONITOR, stride=int(5e2))
 
     trans_one_turn = [m for m in trans_map]
-    Q_X, Q_Y = 62.28, 60.31
-    (Q_X, Q_Y) = (Q_X-MAX_TO_SHIFT_RATIO_PEL*dQmax, Q_Y-MAX_TO_SHIFT_RATIO_PEL*dQmax)
+    Q_X, Q_Y = 62.31, 60.32
+    (Q_X, Q_Y) = (Q_X-MAX_TO_SHIFT_RATIO_PEL *
+                  dQmax, Q_Y-MAX_TO_SHIFT_RATIO_PEL*dQmax)
 
     (beta_x_inj, beta_y_inj) = (C/(2*np.pi)/Q_X, C/(2*np.pi)/Q_Y)
     dampingrate, phase = get_damping_rate_and_phase(r, i)

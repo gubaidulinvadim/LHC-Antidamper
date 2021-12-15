@@ -42,7 +42,7 @@ def run(r, i, chromaticity, dQmax, folder, ratio):
         folder, dQmax*1e3, N_TURNS_SLICEMONITOR, stride=int(5e2))
 
     trans_one_turn = [m for m in trans_map]
-    Q_X, Q_Y = 62.28, 60.31
+    Q_X, Q_Y = 62.31, 60.32
 
     (Q_X, Q_Y) = (Q_X-MAX_TO_SHIFT_RATIO_DC*dQmax, Q_Y-MAX_TO_SHIFT_RATIO_DC*dQmax)
 
