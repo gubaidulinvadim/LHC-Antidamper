@@ -70,7 +70,7 @@ def run(r, i, chromaticity, dQmax, folder, i_oct):
     for m in trans_map:
         trans_one_turn.append(m)
         trans_one_turn.append(pelens)
-    map_ = trans_one_turn + [long_map, antidamper_x, antidamper_y]
+    map_ = trans_one_turn + [long_map, antidamper_y]
     track_slices = False
     slice_turn = 0
     for turn in tqdm(range(N_TURNS)):
