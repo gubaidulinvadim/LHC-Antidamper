@@ -58,7 +58,7 @@ def run(r, i, chromaticity, dQmax, folder, ratio):
                                            bunch.epsn_x())/L_E*m_p/m_e*BETA_E*bunch.beta/(1+bunch.beta*BETA_E)
     z = np.linspace(-4*bunch.sigma_z(), 4*bunch.sigma_z(), N_SLICES)
     sigma_z = bunch.sigma_z()
-    I_e = I_max*np.exp(-z**2/(2*sigma_z**2))
+    I_e = I_max  # *np.exp(-z**2/(2*sigma_z**2))
     pelens = ElectronLens(L_E, I_e/N_SEGMENTS, sigma_e,
                           sigma_e, BETA_E, dist='GS')
     trans_one_turn = []

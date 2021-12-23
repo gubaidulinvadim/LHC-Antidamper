@@ -66,7 +66,7 @@ def run(r, i, chromaticity, dQmax, folder, i_oct):
     I_e = I_max*np.exp(-z**2/(2*sigma_z**2))
     pelens = ElectronLens(L_e, 0.5*I_e/N_SEGMENTS, sigma_e,
                           sigma_e, beta_e, dist='KV')
-    elens = ElectronLens(L_e, [max(I_e)]/N_SEGMENTS, 0.25*sigma_e,
+    elens = ElectronLens(L_e, [I_max/N_SEGMENTS], 0.25*sigma_e,
                          0.25*sigma_e, beta_e, dist='GS')
     trans_one_turn = []
     for m in trans_map:
