@@ -25,5 +25,5 @@ dQmax=0.001
 I_OCT=0
 python ${FILE} ${SLURM_ARRAY_TASK_ID} ${CHROMATICITY_0} ${dQmax} ${TMP_FOLDER} ${I_OCT}
 rsync -avP ${TMP_FOLDER} ${FOLDER}
-# rm /lustre/bhs/vgubaid/out/*
-# rm /lustre/bhs/vgubaid/err/*
+rm /lustre/bhs/vgubaid/out/*
+rm /lustre/bhs/vgubaid/err/*

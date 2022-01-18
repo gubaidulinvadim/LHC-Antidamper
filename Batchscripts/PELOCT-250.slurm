@@ -1,10 +1,10 @@
 #!/bin/bash
 
 #SBATCH --job-name=PELOCT-250
-#SBATCH --partition=main
+#SBATCH --partition=long
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=gubaidulinvadim@gmail.com
-#SBATCH --time=08:00:00
+#SBATCH --time=20:00:00
 #SBATCH --array=0-650
 #SBATCH --export=ALL
 #SBATCH --error=/lustre/bhs/vgubaid/err/job%J.err

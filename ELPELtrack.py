@@ -31,7 +31,7 @@ def get_damping_rate_and_phase(r, i):
 
 def run(r, i, chromaticity, dQmax, folder, i_oct):
     np.random.seed(42)
-    dQcoh_x, dQcoh_y = dQmax*MAX_TO_SHIFT_RATIO_PEL, dQmax*MAX_TO_SHIFT_RATIO_PEL
+    dQcoh_x, dQcoh_y = dQmax, dQmax
     long_map, trans_map, bunch = machine_setup(
         chromaticity, i_oct=i_oct, dQcoh_x=dQmax, dQcoh_y=dQmax)
     bunch_monitor = get_bunch_monitor(
@@ -71,9 +71,9 @@ def run(r, i, chromaticity, dQmax, folder, i_oct):
     trans_one_turn = []
     for m in trans_map:
         trans_one_turn.append(m)
-        trans_one_turn.append(pelens)
-        trans_one_turn.append(elens)
-    map_ = trans_one_turn + [long_map, antidamper_y]
+        # trans_one_turn.append(pelens)
+        # trans_one_turn.append(elens)
+    map_ = trans_one_turn + [long_map, antidamper_y, pelens, elens]
     track_slices = False
     slice_turn = 0
     for turn in tqdm(range(N_TURNS)):
