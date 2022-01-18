@@ -15,7 +15,7 @@ from utils import *
 N_SEGMENTS = 1
 N_TURNS = int(1e5)
 N_SLICES = 200
-N_MACROPARTICLES = int(5e5)
+# N_MACROPARTICLES = int(5e5)
 N_TURNS_SLICEMONITOR = 2001
 
 

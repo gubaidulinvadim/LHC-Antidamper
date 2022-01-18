@@ -36,7 +36,7 @@ def get_particle_monitor(folder, param, n_turns, stride=50, parameters_dict=None
     return particle_monitor
 
 
-N_MACROPARTICLES = int(1.e5)
+N_MACROPARTICLES = int(5.e5)
 N_SEGMENTS = 1
 
 
