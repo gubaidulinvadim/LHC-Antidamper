@@ -1,10 +1,10 @@
 #!/bin/bash
 
 #SBATCH --job-name=ELPEL
-#SBATCH --partition=main
+#SBATCH --partition=long
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=gubaidulinvadim@gmail.com
-#SBATCH --time=08:00:00
+#SBATCH --time=20:00:00
 #SBATCH --array=0-650
 #SBATCH --export=ALL
 #SBATCH --error=/lustre/bhs/vgubaid/err/job%J.err
@@ -21,7 +21,7 @@ rm -rf ${TMP_FOLDER}
 mkdir -p ${TMP_FOLDER}
 mkdir -p ${FOLDER}
 CHROMATICITY_0=0.
-dQmax=0.001
+dQmax=0.0005
 I_OCT=0
 python ${FILE} ${SLURM_ARRAY_TASK_ID} ${CHROMATICITY_0} ${dQmax} ${TMP_FOLDER} ${I_OCT}
 rsync -avP ${TMP_FOLDER} ${FOLDER}
