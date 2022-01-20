@@ -44,8 +44,8 @@ def run(r, i, chromaticity, dQmax, folder, i_oct):
 
     trans_one_turn = [m for m in trans_map]
     Q_X, Q_Y = 62.31, 60.32
-    (Q_X, Q_Y) = (Q_X-MAX_TO_SHIFT_RATIO_PEL *
-                  dQmax, Q_Y-MAX_TO_SHIFT_RATIO_PEL*dQmax)
+    # (Q_X, Q_Y) = (Q_X-MAX_TO_SHIFT_RATIO_PEL *
+    #   dQmax, Q_Y-MAX_TO_SHIFT_RATIO_PEL*dQmax)
 
     (beta_x_inj, beta_y_inj) = (C/(2*np.pi)/Q_X, C/(2*np.pi)/Q_Y)
     dampingrate, phase = get_damping_rate_and_phase(r, i)
@@ -66,8 +66,10 @@ def run(r, i, chromaticity, dQmax, folder, i_oct):
     I_e = I_max*np.exp(-z**2/(2*sigma_z**2))
     pelens = ElectronLens(L_e, 0.5*I_e/N_SEGMENTS, sigma_e,
                           sigma_e, beta_e, dist='KV')
-    elens = ElectronLens(L_e, [I_max/N_SEGMENTS], 0.25*sigma_e,
-                         0.25*sigma_e, beta_e, dist='GS')
+    I_max2 = A/Z*dQmax*I_ALFVEN*(4*pi *
+                                 bunch.epsn_x())/L_E*m_p/m_e*BETA_E*bunch.beta/(1+bunch.beta*BETA_E)
+    elens = ElectronLens(L_e, [I_max2/N_SEGMENTS], bunch.sigma_x(),
+                         bunch.sigma_y(), beta_e, dist='GS')
     trans_one_turn = []
     for m in trans_map:
         trans_one_turn.append(m)
@@ -101,8 +103,8 @@ if __name__ == '__main__':
     folder = sys.argv[4]
     i_oct = float(sys.argv[5])
     points = []
-    dQi = dQmax*np.linspace(0, 0.3, 31)
-    dQr = dQmax*np.linspace(-.8, .8, 21)
+    dQi = 2*dQmax*np.linspace(0, 0.3, 31)
+    dQr = 2*dQmax*np.linspace(-.8, .8, 21)
     np.save(folder+'dQi.npy', dQi)
     np.save(folder+'dQr.npy', dQr)
     for i in dQi:
