@@ -64,7 +64,7 @@ def machine_setup(chroma, i_oct=0, dQcoh_x=0, dQcoh_y=0):
 
     ampl_det = AmplitudeDetuning.from_octupole_currents_LHC(
         i_focusing=i_oct, i_defocusing=-i_oct)
-    chroma = Chromaticity(Qp_x=[chromaticity*Q_X], Qp_y=[0*Q_Y])
+    chroma = Chromaticity(Qp_x=[chromaticity*Q_X], Qp_y=[chromaticity*Q_Y])
     trans_map = TransverseMap(s, alpha_x, beta_x, D_x,
                               alpha_y, beta_y, D_y, Q_X, Q_Y, [chroma, ampl_det])
     #################################################################
