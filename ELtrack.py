@@ -30,7 +30,7 @@ def get_damping_rate_and_phase(r, i):
 
 def run(r, i, chromaticity, dQmax, folder, ratio):
     np.random.seed(42)
-    dQcoh_x, dQcoh_y = dQmax*MAX_TO_SHIFT_RATIO_DC, dQmax*MAX_TO_SHIFT_RATIO_DC
+    dQcoh_x, dQcoh_y = dQmax, dQmax
     long_map, trans_map, bunch = machine_setup(
         chromaticity, i_oct=0, dQcoh_x=dQcoh_x, dQcoh_y=dQcoh_y)
     bunch_monitor = get_bunch_monitor(
@@ -44,7 +44,7 @@ def run(r, i, chromaticity, dQmax, folder, ratio):
     trans_one_turn = [m for m in trans_map]
     Q_X, Q_Y = 62.31, 60.32
 
-    (Q_X, Q_Y) = (Q_X-MAX_TO_SHIFT_RATIO_DC*dQmax, Q_Y-MAX_TO_SHIFT_RATIO_DC*dQmax)
+    (Q_X, Q_Y) = (Q_X-dQmax, Q_Y-dQmax)
 
     (beta_x_inj, beta_y_inj) = (C/(2*pi)/Q_X, C/(2*pi)/Q_Y)
     dampingrate, phase = get_damping_rate_and_phase(r, i)
