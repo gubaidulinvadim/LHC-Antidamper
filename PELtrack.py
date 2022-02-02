@@ -14,8 +14,8 @@ from utils import *
 
 N_SEGMENTS = 1
 N_TURNS = int(1e5)
-N_SLICES = 200
-N_MACROPARTICLES = int(1e5)
+N_SLICES = 50
+# N_MACROPARTICLES = int(1e5)
 N_TURNS_SLICEMONITOR = 2001
 
 
@@ -44,8 +44,8 @@ def run(r, i, chromaticity, dQmax, folder):
 
     trans_one_turn = [m for m in trans_map]
     Q_X, Q_Y = 62.31, 60.32
-    (Q_X, Q_Y) = (Q_X-MAX_TO_SHIFT_RATIO_PEL *
-                  dQmax, Q_Y-MAX_TO_SHIFT_RATIO_PEL*dQmax)
+    (Q_X, Q_Y) = (Q_X-dQmax,
+                  Q_Y-dQmax)
 
     (beta_x_inj, beta_y_inj) = (C/(2*np.pi)/Q_X, C/(2*np.pi)/Q_Y)
     dampingrate, phase = get_damping_rate_and_phase(r, i)
