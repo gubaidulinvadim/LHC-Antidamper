@@ -25,5 +25,5 @@ dQmax=0.001
 RATIO=0.7
 python ${FILE} ${SLURM_ARRAY_TASK_ID} ${CHROMATICITY_0} ${dQmax} ${TMP_FOLDER} ${RATIO}
 rsync -avP ${TMP_FOLDER} ${FOLDER}
-rm /lustre/bhs/vgubaid/out/*
-rm /lustre/bhs/vgubaid/err/*
+# rm /lustre/bhs/vgubaid/out/*
+# rm /lustre/bhs/vgubaid/err/*

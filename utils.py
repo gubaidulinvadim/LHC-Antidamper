@@ -36,14 +36,14 @@ def get_particle_monitor(folder, param, n_turns, stride=50, parameters_dict=None
     return particle_monitor
 
 
-N_MACROPARTICLES = int(5.e5)
+N_MACROPARTICLES = int(1.e5)
 N_SEGMENTS = 1
 
 
 def machine_setup(chroma, i_oct=0, dQcoh_x=0, dQcoh_y=0):
     np.random.seed(42)
     chromaticity = chroma
-    Q_X, Q_Y = 62.31, 60.32
+    Q_X, Q_Y = 62.28, 60.32
     (Q_X, Q_Y) = (Q_X-dQcoh_x, Q_Y-dQcoh_y)
     ################################################################
     ###                 LONGITUDINAL MAP SET UP                  ###
